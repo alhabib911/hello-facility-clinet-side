@@ -1,0 +1,50 @@
+.achivement-container{
+    background-color: #F7941E;
+}
+.achivement-title{
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+}
+.achivement-area{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}
+.project{
+    display: flex;
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+}
+.project-area h2{
+    font-size: 20px;
+    color: #fff;
+}
+.team{
+    display: flex;
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+}
+.team-area h2{
+    font-size: 20px;
+    color: #fff;
+}
+.customer{
+    display: flex;
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+}
+.customer-area h2{
+    font-size: 20px;
+    color: #fff;
+}

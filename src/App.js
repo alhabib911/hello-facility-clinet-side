@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './Components/Home/Home';
+import AdditionalAboutus from './Components/Pages/AdditionalPage/AdditionalAboutus';
+import Career from './Components/Pages/AdditionalPage/Career';
+import Faq from './Components/Pages/AdditionalPage/Faq';
+import Blog from './Components/Pages/Blog';
+import Client from './Components/Pages/Client';
+import ContactUs from './Components/Pages/ContactUs';
+import Gallery from './Components/Pages/Gallery';
+import NotFoundPage from './Components/Pages/NotFoundPage';
+import Service from './Components/Pages/Service';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/service' element={<Service></Service>}></Route>
+        <Route path='/client' element={<Client></Client>}></Route>
+        <Route path='/gallery' element={<Gallery></Gallery>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/contacts' element={<ContactUs></ContactUs>}></Route>
+        <Route path='/aboutus' element={<AdditionalAboutus></AdditionalAboutus>}></Route>
+        <Route path='/faq' element={<Faq></Faq>}></Route>
+        <Route path='/career' element={<Career></Career>}></Route>
+        <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
+      </Routes>
     </div>
   );
 }

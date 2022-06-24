@@ -1,0 +1,21 @@
+.valued-clients-container h2{
+    text-align: center;
+    margin-top: 50px;
+    color: #1074BA;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.valued-clients-container span{
+    text-align: center;
+    margin-top: 50px;
+    color: #F7941E;
+    text-decoration: underline;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
