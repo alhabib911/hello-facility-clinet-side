@@ -1,9 +1,15 @@
 import React from 'react';
+import Footer from '../Footer';
+import HeaderContact from '../HeaderContact';
+import Navbar from '../Navbar';
 
 const Gardening = () => {
     return (
         <div>
-            Gardening
+            <HeaderContact></HeaderContact>
+            <Navbar></Navbar>
+        
+            <Footer></Footer>
         </div>
     );
 };

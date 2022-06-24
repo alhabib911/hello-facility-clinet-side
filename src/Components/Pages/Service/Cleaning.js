@@ -14,16 +14,16 @@ const Cleaning = () => {
         <div>
             <HeaderContact></HeaderContact>
             <Navbar></Navbar>
-            <div className="cleaning-container">
-                <div className="cleaning-area">
-                    <div className="cleaning-banner">
-                        <img className='cleaning-banner-img' src={CleaningBanner} alt="" />
+            <div className="service-container">
+                <div className="service-area">
+                    <div className="service-banner">
+                        <img className='service-banner-img' src={CleaningBanner} alt="" />
                     </div>
-                    <div className="cleaning-title">
+                    <div className="service-title">
                         <h1>Cleaning Service</h1>
                     </div>
-                    <div className="cleaning-details-area">
-                        <div className="cleaning-details">
+                    <div className="service-details-area">
+                        <div className="service-details">
                             <p>At Hello Facility, we provide a squeaky clean & healthy work environment made possible by our expert Housekeeper. Our commitment to excellent customer service. We employ advanced & effective systems available to sanitize living spaces & work areas where most of our clients are spending much of their time. <br /> <br /> We use eco-friendly cleaning materials & products. Moreover, we provide janitorial & grounds maintenance solutions for our valued clients. Now we are offering below services…
 
                                 <li>Regular Cleaning Service (Office).</li>
@@ -35,12 +35,12 @@ const Cleaning = () => {
                                 <li>Abseiling (External Glass Clean) Service.</li>
                             </p>
                         </div>
-                        <div className="cleaning-img">
+                        <div className="service-img">
                             <img src={One} alt="" />
                         </div>
                     </div>
-                    <div className="cleaning-gallery">
-                        <div className="cleaning-gallery-area">
+                    <div className="service-gallery">
+                        <div className="service-gallery-area">
                             <div className="gallery-card">
                                 <img src={Two} alt="" />
                             </div>

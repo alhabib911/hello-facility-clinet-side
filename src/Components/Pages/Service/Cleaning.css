@@ -1,8 +1,8 @@
-.cleaning-banner-img{
+.service-banner-img{
     width: 100%;
-    height: 350px;
+    height: 450px;
 }
-.cleaning-title h1{
+.service-title h1{
     color: #2280C1;
     font-size: 20px;
     font-weight: 600;
@@ -10,33 +10,41 @@
     text-align: center;
     padding-bottom: 20px;
 }
-.cleaning-details-area{
+.service-details-area{
     display: flex;
     width: 85%;
     margin: auto;
     gap: 45px;
 }
-.cleaning-details{
+.service-details{
     width: 60%;
     
 }
-.cleaning-details p{
+.service-details p{
     text-align: justify;
     margin-bottom: 25px;
     font-family: 'Roboto', sans-serif;
     
 }
-.cleaning-img{
+.service-img{
     width: 40%;
     display: flex;
         align-items: center;
 }
-.cleaning-gallery{
+.service-gallery{
     width: 85%;
     margin: auto;
     margin-bottom: 50px;
 }
-.cleaning-gallery-area{
+.service-gallery-area{
     display: flex;
     gap: 45px;
+}
+.gallery-card img{
+    width: 380px;
+    height: 250px;
+}
+.service-img img{
+    width: 380px;
+    height: 250px;
 }

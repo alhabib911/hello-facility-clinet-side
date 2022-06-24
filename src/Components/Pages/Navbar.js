@@ -46,8 +46,8 @@ const Navbar = () => {
                                 <li><Link to='/cleaning'>Cleaning Service</Link></li>
                                 <li><Link to='/car-rental'>Car Rental</Link></li>
                                 <li><Link to='/Building-management'>Building Management Solution</Link></li>
-                                <li><Link to='/pest-control'>Stationery Supply</Link></li>
-                                <li><Link to='/stationary'>Pest control</Link></li>
+                                <li><Link to='/stationary'>Stationery Supply</Link></li>
+                                <li><Link to='/pest-control'>Pest control</Link></li>
                                 <li><Link to='/Gardening'>Gardening</Link></li>
                                 </ul>
                             </div>
