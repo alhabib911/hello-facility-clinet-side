@@ -19,19 +19,19 @@ const CarRental = () => {
                         <img className='service-banner-img' src={CarRentalBanner} alt="" />
                     </div>
                     <div className="service-title">
-                        <h1>Cleaning Service</h1>
+                        <h1>Car Rental</h1>
                     </div>
                     <div className="service-details-area">
                         <div className="service-details">
-                            <p>At Hello Facility, we provide a squeaky clean & healthy work environment made possible by our expert Housekeeper. Our commitment to excellent customer service. We employ advanced & effective systems available to sanitize living spaces & work areas where most of our clients are spending much of their time. <br /> <br /> We use eco-friendly cleaning materials & products. Moreover, we provide janitorial & grounds maintenance solutions for our valued clients. Now we are offering below services…
+                            <p>Hello Facility car rental is the most reliable car rental in Dhaka. From customer convenience to quality service and exclusive deals, we are committed to rendering a fully-customized service, whether it is for an individual or a company.
+                                <br /><br />
+                                Since our establishment, we have worked with a clear focus on innovation and continuously strive to improve our services at every step. Now we are offering below services…
 
-                                <li>Regular Cleaning Service (Office).</li>
-                                <li>Floor Scrubbing.</li>
-                                <li>Toilet Deep Cleaning.</li>
-                                <li>Kitchen Deep Cleaning.</li>
-                                <li>Sofa Deep Cleaning.</li>
-                                <li>Carpet Wash.</li>
-                                <li>Abseiling (External Glass Clean) Service.</li>
+                                <li>Airport Pick/ Drop Service.</li>
+                                <li>Holiday Travel Package.</li>
+                                <li>On Demand Service.</li>
+                                <li>Hourly Service.</li>
+                                <li>Business Travel Package.</li>
                             </p>
                         </div>
                         <div className="service-img">

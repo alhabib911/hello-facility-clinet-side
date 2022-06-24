@@ -20,19 +20,18 @@ const BuildingManagement = () => {
                         <img className='service-banner-img' src={Banner} alt="" />
                     </div>
                     <div className="service-title">
-                        <h1>Cleaning Service</h1>
+                        <h1>Building Management Solution</h1>
                     </div>
                     <div className="service-details-area">
                         <div className="service-details">
-                            <p>At Hello Facility, we provide a squeaky clean & healthy work environment made possible by our expert Housekeeper. Our commitment to excellent customer service. We employ advanced & effective systems available to sanitize living spaces & work areas where most of our clients are spending much of their time. <br /> <br /> We use eco-friendly cleaning materials & products. Moreover, we provide janitorial & grounds maintenance solutions for our valued clients. Now we are offering below services…
+                            <p>To enhance the quality in service & efficient use of owners’ resources in transparent manner Hello Facility building management solution would be your best choice.
+<br /><br />
+To create a change in this work, we initiated a complete property management ecosystem through the use of our proprietary work-flow management system which is new across this arena. So, don’t be bother, give your property responsibility to us and become stress free & satisfied. We are providing…
 
-                                <li>Regular Cleaning Service (Office).</li>
-                                <li>Floor Scrubbing.</li>
-                                <li>Toilet Deep Cleaning.</li>
-                                <li>Kitchen Deep Cleaning.</li>
-                                <li>Sofa Deep Cleaning.</li>
-                                <li>Carpet Wash.</li>
-                                <li>Abseiling (External Glass Clean) Service.</li>
+                                <li>Building Maintenance and operations.</li>
+                                <li>Facility Management.</li>
+                                <li>Security Management.</li>
+                                <li>Gardening and Landscaping Management.</li>
                             </p>
                         </div>
                         <div className="service-img">
