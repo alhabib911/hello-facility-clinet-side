@@ -9,7 +9,12 @@ import Client from './Components/Pages/Client';
 import ContactUs from './Components/Pages/ContactUs';
 import Gallery from './Components/Pages/Gallery';
 import NotFoundPage from './Components/Pages/NotFoundPage';
-import Service from './Components/Pages/Service';
+import BuildingManagement from './Components/Pages/Service/BuildingManagement';
+import CarRental from './Components/Pages/Service/CarRental';
+import Cleaning from './Components/Pages/Service/Cleaning';
+import Gardening from './Components/Pages/Service/Gardening';
+import PestControl from './Components/Pages/Service/PestControl';
+import Stationary from './Components/Pages/Service/Stationary';
 
 function App() {
   return (
@@ -17,7 +22,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/service' element={<Service></Service>}></Route>
         <Route path='/client' element={<Client></Client>}></Route>
         <Route path='/gallery' element={<Gallery></Gallery>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
@@ -25,6 +29,12 @@ function App() {
         <Route path='/aboutus' element={<AdditionalAboutus></AdditionalAboutus>}></Route>
         <Route path='/faq' element={<Faq></Faq>}></Route>
         <Route path='/career' element={<Career></Career>}></Route>
+        <Route path='/cleaning' element={<Cleaning></Cleaning>}></Route>
+        <Route path='/car-rental' element={<CarRental></CarRental>}></Route>
+        <Route path='/Building-management' element={<BuildingManagement></BuildingManagement>}></Route>
+        <Route path='/pest-control' element={<PestControl></PestControl>}></Route>
+        <Route path='/stationary' element={<Stationary></Stationary>}></Route>
+        <Route path='/Gardening' element={<Gardening></Gardening>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
     </div>

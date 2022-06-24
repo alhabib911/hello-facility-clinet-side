@@ -8,7 +8,7 @@ import './HeaderContacu.css'
 
 const HeaderContact = () => {
     return (
-        <div className='header-contact-container'>
+        <div className='header-contact-container '>
             <div className="general-contact">
                 <div className="phone">
                     <div className="p-icon">
