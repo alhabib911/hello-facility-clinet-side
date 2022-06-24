@@ -1,0 +1,25 @@
+.client-container{
+    background-color: #F8F9FA;
+}
+.client-banner-title{
+    color: #2280C1;
+    font-size: 28px;
+    font-weight: 600;
+    padding-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.clent-img{
+    width: 85%;
+    margin: auto;
+}
+.client-img-area{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+.client-img-area img{
+    width: 220px;
+    height: 165px;
+    background-color: #fff;
+}
