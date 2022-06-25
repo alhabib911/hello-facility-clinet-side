@@ -10,7 +10,7 @@ const HeaderContact = () => {
     return (
         <div className='header-contact-container '>
             <div className="general-contact">
-                <div className="phone">
+                <div className="phone-icon">
                     <div className="p-icon">
                         <MdLocalPhone />
                     </div>
@@ -18,7 +18,7 @@ const HeaderContact = () => {
                         <h2>+880 9606 35 35 35</h2>
                     </div>
                 </div>
-                <div className="email">
+                <div className="email-icon">
                     <div className="e-icon">
                         <MdOutlineMarkEmailUnread />
                     </div>
@@ -31,7 +31,7 @@ const HeaderContact = () => {
                 <div className="facebook">
                         <FaFacebook/>
                 </div>
-                <div className="linkedin">
+                <div className="linkedin-icon">
                     <AiFillLinkedin/>
                 </div>
                 <div className="instagram">

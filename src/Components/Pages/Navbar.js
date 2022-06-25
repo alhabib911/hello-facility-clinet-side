@@ -1,9 +1,19 @@
 import React from 'react';
 import ColorLogo from '../../images/Logo/Color.png'
 import { Link } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
+import { BiLogOut } from 'react-icons/bi';
 import './Navbar.css'
 
 const Navbar = () => {
+    const [user] = useAuthState(auth)
+    const handleSignOut = () => {
+        signOut(auth)
+        localStorage.removeItem('accessToken');
+    }
     return (
         <div className="navbar-divider">
             {/* <hr /> */}
@@ -43,12 +53,12 @@ const Navbar = () => {
                                     <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                 </label>
                                 <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link to='/cleaning'>Cleaning Service</Link></li>
-                                <li><Link to='/car-rental'>Car Rental</Link></li>
-                                <li><Link to='/Building-management'>Building Management Solution</Link></li>
-                                <li><Link to='/stationary'>Stationery Supply</Link></li>
-                                <li><Link to='/pest-control'>Pest control</Link></li>
-                                <li><Link to='/Gardening'>Gardening</Link></li>
+                                    <li><Link to='/cleaning'>Cleaning Service</Link></li>
+                                    <li><Link to='/car-rental'>Car Rental</Link></li>
+                                    <li><Link to='/Building-management'>Building Management Solution</Link></li>
+                                    <li><Link to='/stationary'>Stationery Supply</Link></li>
+                                    <li><Link to='/pest-control'>Pest control</Link></li>
+                                    <li><Link to='/Gardening'>Gardening</Link></li>
                                 </ul>
                             </div>
                             <li><Link to='/client'>Client</Link></li>
@@ -57,9 +67,14 @@ const Navbar = () => {
                             <li><Link to='/contacts'>Contact Us</Link></li>
                         </ul>
                     </div>
-                    {/* <div class="navbar-end">
-                        <a class="btn">Get started</a>
-                    </div> */}
+                    <div class="navbar-end">
+                        {
+                            user ?
+                                <Link to='/login' onClick={handleSignOut}><BiLogOut /><span>Log Out</span></Link>
+                                :
+                                <Link to='/login'><RiAccountPinCircleFill /><span>Login/Register</span></Link>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

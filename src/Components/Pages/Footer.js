@@ -18,13 +18,13 @@ const Footer = () => {
                     </div>
                     <div className="footer-social-contact">
                         <div className="facebook-footer">
-                            <a href=""><FaFacebook /></a>
+                            <a target='-blank' href="https://www.facebook.com/hellofacility"><FaFacebook /></a>
                         </div>
                         <div className="linkedin-footer">
-                            <a href=""><TiSocialLinkedinCircular /></a>
+                            <a target='-blank' href="https://www.linkedin.com/company/hello-facility/"><TiSocialLinkedinCircular /></a>
                         </div>
                         <div className="instagram-footer">
-                            <a href=""><AiFillInstagram /></a>
+                            <a target='-blank' href="https://www.instagram.com/hellofacility.bd/"><AiFillInstagram /></a>
                         </div>
                     </div>
                 </div>

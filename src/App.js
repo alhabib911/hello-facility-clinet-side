@@ -1,5 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import AdminDashboard from './Components/AdminDashboard/AdminDashboard';
+import Login from './Components/Authentication/Login';
+import Register from './Components/Authentication/Register';
 import Home from './Components/Home/Home';
 import AdditionalAboutus from './Components/Pages/AdditionalPage/AdditionalAboutus';
 import Career from './Components/Pages/AdditionalPage/Career';
@@ -35,6 +38,9 @@ function App() {
         <Route path='/pest-control' element={<PestControl></PestControl>}></Route>
         <Route path='/stationary' element={<Stationary></Stationary>}></Route>
         <Route path='/Gardening' element={<Gardening></Gardening>}></Route>
+        <Route path='/dashboard' element={<AdminDashboard></AdminDashboard>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
     </div>

@@ -28,7 +28,7 @@ const OurTeam = () => {
                             <div className="facebook">
                                 <a href=""><FaFacebook /></a>
                             </div>
-                            <div className="linkedin">
+                            <div className="linkedin-icon">
                                 <a href=""><AiFillLinkedin /></a>
                             </div>
                             <div className="instagram">
@@ -51,7 +51,7 @@ const OurTeam = () => {
                             <div className="facebook">
                                 <a href=""><FaFacebook /></a>
                             </div>
-                            <div className="linkedin">
+                            <div className="linkedin-icon">
                                 <a href=""><AiFillLinkedin /></a>
                             </div>
                             <div className="instagram">
@@ -74,7 +74,7 @@ const OurTeam = () => {
                             <div className="facebook">
                                 <a href=""><FaFacebook /></a>
                             </div>
-                            <div className="linkedin">
+                            <div className="linkedin-icon">
                                 <a href=""><AiFillLinkedin /></a>
                             </div>
                             <div className="instagram">

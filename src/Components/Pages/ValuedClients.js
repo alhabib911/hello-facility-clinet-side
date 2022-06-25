@@ -7,7 +7,6 @@ import foodpanda from '../../images/Client/foodpanda.png'
 import FPT from '../../images/Client/FPT.png'
 import Haier from '../../images/Client/Haier.png'
 import Lantabor from '../../images/Client/Lantabor.png'
-import Project from '../../images/Client/Project.png'
 import Swodesh from '../../images/Client/SWODESH.png'
 import Tsports from '../../images/Client/Tsports.png'
 import './ValuedClients.css'
@@ -38,7 +37,6 @@ const ValuedClients = () => {
                     </div>
                 </div>
                 <div id="slides3" class="carousel-item relative w-11/12 pl-72">
-                    <img className='w-48 h-48' src={Project} />
                     <img className='w-48 h-48' src={Swodesh} />
                     <img className='w-48 h-48' src={Tsports} />
                     <div class="absolute flex justify-between transform -translate-y-1/2 left-32 right-80 top-1/2">

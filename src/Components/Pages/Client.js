@@ -10,7 +10,6 @@ import foodpanda from '../../images/Client/foodpanda.png'
 import FPT from '../../images/Client/FPT.png'
 import Haier from '../../images/Client/Haier.png'
 import Lantabor from '../../images/Client/Lantabor.png'
-import Project from '../../images/Client/Project.png'
 import Swodesh from '../../images/Client/SWODESH.png'
 import Tsports from '../../images/Client/Tsports.png'
 import './Client.css'
@@ -41,7 +40,6 @@ const Client = () => {
                             <img src={FPT} alt="" />
                             <img src={Haier} alt="" />
                             <img src={Lantabor} alt="" />
-                            <img src={Project} alt="" />
                             <img src={Swodesh} alt="" />
                             <img src={Tsports} alt="" />
                         </div>
