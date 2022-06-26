@@ -1,0 +1,16 @@
+.blog-container{
+    width: 50%;
+    margin: auto;
+}
+.add-blog-btn input{
+    border: 1px solid #0F75BC;
+    padding: 5px 25px 5px 25px;
+    border-radius: 5px;
+}
+.add-blog-btn input:hover{
+    background-color: #0F75BC;
+    color: #fff;
+    padding: 5px 25px 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}

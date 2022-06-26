@@ -6,3 +6,47 @@
     text-align: center;
     padding-bottom: 20px;
 }
+.gallery-img{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+.gallery-img-area img{
+    width: 300px;
+    height: 200px;
+    border: 1px solid #F7941E;
+    border-radius: 5px;
+}
+.gallery-img-area img:hover{
+    width: 320px;
+    height: 200px;
+    border: 2px solid #2280C1;
+    border-radius: 5px;
+}
+.image-input{
+    border: 1px solid gainsboro;
+    margin: 0 50% 0 0;
+    padding: 6px 0px 0 30px;
+}
+.label-text-image{
+    margin-left: 100px;
+    margin-top: 25px;
+}
+.add-gallery-btn input{
+    border: 1px solid #2280C1;
+    border-radius: 5px;
+    margin: 0 50% 0 0;
+    padding: 5px 25px 5px 25px;
+}
+.add-gallery-btn input:hover{
+    border: 1px solid #2280C1;
+    border-radius: 5px;
+    margin: 0 50% 0 0;
+    padding: 5px 25px 5px 25px;
+    background-color: #2280C1;
+    color: #fff;
+    cursor: pointer;
+}

@@ -35,7 +35,7 @@ const Login = () => {
 
 
     if (user || gUser) {
-        navigate('/home')
+        navigate('/dashboard')
         // console.log(user);
     }
 

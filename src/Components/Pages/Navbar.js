@@ -9,11 +9,6 @@ import { BiLogOut } from 'react-icons/bi';
 import './Navbar.css'
 
 const Navbar = () => {
-    const [user] = useAuthState(auth)
-    const handleSignOut = () => {
-        signOut(auth)
-        localStorage.removeItem('accessToken');
-    }
     return (
         <div className="navbar-divider">
             {/* <hr /> */}
@@ -68,12 +63,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div class="navbar-end">
-                        {
-                            user ?
-                                <Link to='/login' onClick={handleSignOut}><BiLogOut /><span>Log Out</span></Link>
-                                :
-                                <Link to='/login'><RiAccountPinCircleFill /><span>Login/Register</span></Link>
-                        }
+                       
                     </div>
                 </div>
             </div>

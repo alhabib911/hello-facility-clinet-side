@@ -18,6 +18,12 @@ import Cleaning from './Components/Pages/Service/Cleaning';
 import Gardening from './Components/Pages/Service/Gardening';
 import PestControl from './Components/Pages/Service/PestControl';
 import Stationary from './Components/Pages/Service/Stationary';
+import RequereAuth from './Components/Authentication/RequereAuth'
+import MyProfile from './Components/AdminDashboard/MyProfile';
+import MyProfileEdit from './Components/AdminDashboard/MyProfileEdit'
+import AddGallery from './Components/AdminDashboard/AddGallery';
+import AddBlog from './Components/AdminDashboard/AddBlog'
+import AllBlogs from './Components/Pages/AllBlogs';
 
 function App() {
   return (
@@ -28,6 +34,7 @@ function App() {
         <Route path='/client' element={<Client></Client>}></Route>
         <Route path='/gallery' element={<Gallery></Gallery>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/all-blogs' element={<AllBlogs></AllBlogs>}></Route>
         <Route path='/contacts' element={<ContactUs></ContactUs>}></Route>
         <Route path='/aboutus' element={<AdditionalAboutus></AdditionalAboutus>}></Route>
         <Route path='/faq' element={<Faq></Faq>}></Route>
@@ -41,6 +48,15 @@ function App() {
         <Route path='/dashboard' element={<AdminDashboard></AdminDashboard>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/dashboard' element={<RequereAuth>
+          <AdminDashboard></AdminDashboard>
+        </RequereAuth>}>
+        <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='profile/edit' element={<MyProfileEdit></MyProfileEdit>}></Route>
+          <Route path='add-gallery' element={<AddGallery></AddGallery>}></Route>
+          <Route path='add-blog' element={<AddBlog></AddBlog>}></Route>
+
+        </Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
     </div>
