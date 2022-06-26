@@ -8,9 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
 import './Login.css'
-import HeaderContact from '../Pages/HeaderContact';
-import Navbar from '../Pages/Navbar';
-import Footer from '../Pages/Footer';
+import ColorLogo from '../../images/Logo/Color.png'
 
 const Login = () => {
     const [email, SetEmail] = useState('')
@@ -63,54 +61,57 @@ const Login = () => {
     }
     return (
         <div>
-            <HeaderContact></HeaderContact>
-            <Navbar></Navbar>
-            <div className="login-container">
-            <div className='login-form'>
-            <div className='social-login'>
-                 <button onClick={() => signInWithGoogle()}> <span><FcGoogle></FcGoogle></span> Login With Google</button >
-            </div>
-                <div class=" from-divider flex flex-col w-full border-opacity-50">
-                    <div class="divider">OR</div>
-                </div>
-
-                <div className="form-title">
-                    <h2>Sign In</h2>
-                </div>
-                <form onSubmit={handleUserSignIn} className='login-form-field'>
-                    <div className="email">
-                        <div className="email-title">
-                            <label htmlFor="email">Email</label>
-                            <MdEmail></MdEmail>
-                        </div>
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='someone@emaple.com' />
+            <div className="login-bg">
+                <div className="login-container">
+                    <div className="login-icon">
+                        <img className='color-logo-login-page' src={ColorLogo} alt="" />
+                        <p>This page is only for Admin</p>
                     </div>
-                    <br />
-                    <div className="password">
-                        <div className="password-title">
-                            <label htmlFor="password">Password</label>
-                            <RiLockPasswordFill></RiLockPasswordFill>
+                    <div className='login-form'>    
+                        <div className='social-login'>
+                            <button onClick={() => signInWithGoogle()}> <span><FcGoogle></FcGoogle></span> Login With Google</button >
+                        </div>
+                        <div class=" from-divider flex flex-col w-full border-opacity-50">
+                            <div class="divider">OR</div>
                         </div>
 
-                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='some@pass#123' />
+                        {/* <div className="form-title">
+                            <h2>Sign In</h2>
+                        </div> */}
+                        <form onSubmit={handleUserSignIn} className='login-form-field'>
+                            <div className="email">
+                                <div className="email-title">
+                                    <label htmlFor="email">Email</label>
+                                    <MdEmail></MdEmail>
+                                </div>
+                                <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='someone@emaple.com' />
+                            </div>
+                            <br />
+                            <div className="password">
+                                <div className="password-title">
+                                    <label htmlFor="password">Password</label>
+                                    <RiLockPasswordFill></RiLockPasswordFill>
+                                </div>
+
+                                <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='some@pass#123' />
+                            </div>
+                            <br />
+                            {
+                                loading && <p className='loading'>Loading...</p>
+                            }
+                            {signInError}
+                            <div className="login-btn">
+                                <input type="submit" value="Log In" />
+                            </div>
+                            <div className="forget-button">
+                                <button onClick={handlePasswordReset} className='forget-btn'>Forget Your Password?</button>
+                            </div>
+                            <p className='switch-register'>Don't have an Account? <Link to='/register'><span>Register</span></Link></p>
+                        </form>
                     </div>
-                    <br />
-                    {
-                        loading && <p className='loading'>Loading...</p>
-                    }
-                        {signInError}
-                    <div className="login-btn">
-                        <input type="submit" value="Log In" />
-                    </div>
-                    <div className="forget-button">
-                        <button onClick={handlePasswordReset} className='forget-btn'>Forget Your Password?</button>
-                    </div>
-                    <p className='switch-register'>Don't have an Account? <Link to='/register'><span>Register</span></Link></p>
-                </form>
+                    {/* <ToastContainer/> */}
+                </div>
             </div>
-            {/* <ToastContainer/> */}
-        </div>
-        <Footer></Footer>
         </div>
     );
 };
