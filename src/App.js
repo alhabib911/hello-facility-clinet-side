@@ -24,6 +24,12 @@ import MyProfileEdit from './Components/AdminDashboard/MyProfileEdit'
 import AddGallery from './Components/AdminDashboard/AddGallery';
 import AddBlog from './Components/AdminDashboard/AddBlog'
 import AllBlogs from './Components/Pages/AllBlogs';
+import UserStatus from './Components/AdminDashboard/UserStatus';
+import Overview from './Components/AdminDashboard/Overview';
+import Cost from './Components/AdminDashboard/Cost';
+import Profit from './Components/AdminDashboard/Profit';
+import Employee from './Components/AdminDashboard/Employee';
+import EmployeeUpdate from './Components/AdminDashboard/EmployeeUpdate';
 
 function App() {
   return (
@@ -55,7 +61,13 @@ function App() {
           <Route path='profile/edit' element={<MyProfileEdit></MyProfileEdit>}></Route>
           <Route path='add-gallery' element={<AddGallery></AddGallery>}></Route>
           <Route path='add-blog' element={<AddBlog></AddBlog>}></Route>
-
+          <Route path='user-status' element={<UserStatus></UserStatus>}></Route>
+          <Route path='overview' element={<Overview></Overview>}></Route>
+          <Route path='cost' element={<Cost></Cost>}></Route>
+          <Route path='profit' element={<Profit></Profit>}></Route>
+          <Route path='employee' element={<Employee></Employee>}></Route>
+          <Route path='employee/:id' element={<EmployeeUpdate></EmployeeUpdate>}></Route>
+          
         </Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>

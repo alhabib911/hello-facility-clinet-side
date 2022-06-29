@@ -1,0 +1,36 @@
+.employee-update-form{
+    margin: 20px;
+}
+.single-employee-edit{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+.em-email-update{
+    background-color: #dcdcdc;
+}
+.single-employee-edit input{
+    outline: none;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    width: 90%;
+    padding: 2px 2px 2px 8px;
+}
+.save-update-btn{
+    display: flex;
+    margin: 0 40%;
+}
+.save-update-btn input{
+    margin-top: 20px;
+    border: 1px solid #2280C1;
+    border-radius: 5px;
+    padding: 5px 35px 5px 35px;
+}
+.save-update-btn input:hover{
+    margin-top: 20px;
+    background-color: #2280C1;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 35px 5px 35px;
+}

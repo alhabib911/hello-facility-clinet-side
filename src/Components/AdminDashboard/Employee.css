@@ -1,0 +1,81 @@
+.employee-input-area{
+    width: 95%;
+    margin: auto;
+    margin-top: 50px;
+}
+.employee-list-title{
+    margin: 50px 0;
+    text-align: center;
+    color: #3a3a3a;
+    font-size: 16px;
+    font-weight: 600;
+}
+.em-container{
+    display: flex;
+}
+.em-list-area{
+    width: 75%;
+}
+.em-area-field{
+    width: 25%;
+}
+.em{
+    display: flex;
+    flex-direction: column;
+}
+.em input{
+    border: 1px solid #2280C1;
+    padding: 3px;
+    border-radius: 2px;
+    outline: none;
+}
+.em label{
+    color: #2280C1;
+    font-weight: 600;
+}
+.add-employee-btn{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0% 0 0%;
+    border: 1px solid #2280C1;
+    border-radius: 5px;
+}
+.add-employee-btn:hover{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0% 0 0%;
+    background-color: #2280C1;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-employee-btn input{
+    margin: 5px 0;
+    cursor: pointer;
+    outline: none;
+}
+.employee-img{
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.em-list-area{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.update-employee-btn{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0% 0 0%;
+    border: 1px solid #2280C1;
+    border-radius: 5px;
+}
+.update-employee-btn:hover{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0% 0 0%;
+    background-color: #2280C1;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}

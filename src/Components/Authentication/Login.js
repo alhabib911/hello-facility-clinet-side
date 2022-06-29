@@ -9,6 +9,7 @@ import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
 import './Login.css'
 import ColorLogo from '../../images/Logo/Color.png'
+import useToken from '../hooks/useToken';
 
 const Login = () => {
     const [email, SetEmail] = useState('')
@@ -24,6 +25,9 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user || gUser)
+    console.log(token);
+
     let signInError;
 
     if (error || gError) {
@@ -34,7 +38,7 @@ const Login = () => {
     }
 
 
-    if (user || gUser) {
+    if (token) {
         navigate('/dashboard')
         // console.log(user);
     }

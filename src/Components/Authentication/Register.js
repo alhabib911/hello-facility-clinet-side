@@ -9,6 +9,7 @@ import auth from '../firebase.init';
 import { sendEmailVerification } from 'firebase/auth';
 import ColorLogo from '../../images/Logo/Color.png'
 import './Register.css'
+import useToken from '../hooks/useToken';
 
 
 const Register = () => {
@@ -27,9 +28,9 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
 
-    // const [token] = useToken(user || gUser)
+    const [token] = useToken(user || gUser)
 
-    // console.log(user);
+    console.log(token);
 
 
 
@@ -52,8 +53,8 @@ const Register = () => {
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
-    if (user || gUser) {
-        navigate('/login')
+    if (token) {
+        navigate('/dashboard')
     }
 
 
@@ -62,7 +63,7 @@ const Register = () => {
     const handleCreateUser = async event => {
         event.preventDefault()
         await createUserWithEmailAndPassword(email, password)
-        await sendEmailVerification(auth, email)
+        // await sendEmailVerification(auth, email)
             .then(() => {
                 // toast('Email Sent');
             })
