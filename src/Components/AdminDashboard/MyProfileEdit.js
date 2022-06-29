@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { RiSave3Line } from 'react-icons/ri';
+import { CgProfile } from 'react-icons/cg';
+import { MdCall } from 'react-icons/md';
+import { MdLocationPin } from 'react-icons/md';
+import { FiUserPlus } from 'react-icons/fi';
+import { RiUserFollowLine } from 'react-icons/ri';
+import { RiQrCodeFill } from 'react-icons/ri';
 import auth from '../firebase.init';
 import './MyProfile.css'
 import useUpdateUser from '../hooks/useUpdateUser';
@@ -23,7 +29,6 @@ const MyProfileEdit = () => {
 
 
         const updateProfile = { name, email, phone, address, status, position, hfid }
-        // console.log(updateProduct);
 
 
 
@@ -47,42 +52,70 @@ const MyProfileEdit = () => {
     return (
         <div>
             <div className='dashboard-container'>
-                <h2 className='profile-container-title'>My Profile</h2>
+                <h2 className='profile-container-title'>Profile Update</h2>
 
                 <form onSubmit={handelUpdateUser}>
-                    <div className='single-product-edit'>
-                        <div>
-                            <label htmlFor="name">Name</label> <br />
-                            <input defaultValue={updateUser?.name} type="text" name="name" id="" />
+                    <div className='Profile-edit'>
+                        <div className='em-up-user'>
+                            <label htmlFor="email"></label> <br />
+                            <input defaultValue={updateUser?.email} type="email" name="email" id="" readOnly />
                         </div>
-                        <div>
-                            <label htmlFor="email">Email</label> <br />
-                            <input className='em-email-update' defaultValue={updateUser?.email} type="email" name="email" id="" readOnly />
+                        <div className='la-in'>
+                            <div className="la">
+                                <label htmlFor="name">Name</label> <CgProfile />
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.name} type="text" name="name" id="" />
+                            </div>
                         </div>
-                        <div>
-                            <label htmlFor="phone">Phone</label> <br />
-                            <input defaultValue={updateUser?.phone} type="number" name="phone" id="" />
+                        <div className='la-in'>
+                            <div className="la">
+                                <label htmlFor="phone">Phone</label> 
+                                <br />
+                                <div className="phone-icon">
+                                <MdCall /> +880
+                                </div>
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.phone} type="number" name="phone" id="" />
+                            </div>
                         </div>
-                        <div>
-                            <label htmlFor="address">Address</label> <br />
-                            <input defaultValue={updateUser?.address} type="text" name="address" id="" />
+                        <div className='la-in'>
+                            <div className="la">
+                                <label htmlFor="address">Address</label> <MdLocationPin />
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.address} type="text" name="address" id="" />
+                            </div>
+                        </div>
+                        <div className='la-in'>
+                            <div className="la">
+                                <select value={status} onChange={event => setStatus(event.target.value)} required>
+                                    <option disabled selected>Dashboard Status</option>
+                                    <option>Admin</option>
+                                    <option>Accounts</option>
+                                </select> <FiUserPlus />
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.status} type="text" name="status" id="" />
+                            </div>
                         </div>
 
-                        <select value={status} onChange={event => setStatus(event.target.value)} required>
-                            <option disabled selected>Dashboard Status</option>
-                            <option>Admin</option>
-                            <option>Accounts</option>
-                        </select>
-                        <div>
-                            {updateUser?.status}
+                        <div className='la-in'>
+                            <div className="la">
+                                <label htmlFor="position">Designation</label> <RiUserFollowLine />
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.position} type="text" name="position" id="" />
+                            </div>
                         </div>
-                        <div>
-                            <label htmlFor="position">Designation</label> <br />
-                            <input defaultValue={updateUser?.position} type="text" name="position" id="" />
-                        </div>
-                        <div>
-                            <label htmlFor="hfid">HF Id</label> <br />
-                            <input defaultValue={updateUser?.hfid} type="number" name="hfid" id="" />
+                        <div className='la-in'>
+                            <div className="la">
+                                <label htmlFor="hfid">HF Id</label> <RiQrCodeFill />
+                            </div>
+                            <div className="in">
+                                <input defaultValue={updateUser?.hfid} type="number" name="hfid" id="" />
+                            </div>
                         </div>
                     </div>
                     <div className="update-user-info">

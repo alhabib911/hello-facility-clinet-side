@@ -43,13 +43,7 @@ const Employee = () => {
         <div className='employee-input-area'>
             <h2 className='employee-list-title'>Hello Facility Employee List</h2>
             <div className="em-container">
-                <div className="em-list-area">
-                    {
-                        employee.map(employee => <Employess
-                            employee={employee}
-                        ></Employess>)
-                    }
-                </div>
+
 
                 <div className="em-area-field">
                     <form onSubmit={handelemployeeDetails} className="employee-input-field">
@@ -91,6 +85,13 @@ const Employee = () => {
                             <input type="submit" value="Add Employee" />
                         </div>
                     </form>
+                </div>
+                <div className="em-list-area">
+                    {
+                        employee.map(employee => <Employess
+                            employee={employee}
+                        ></Employess>)
+                    }
                 </div>
             </div>
 

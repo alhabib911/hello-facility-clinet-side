@@ -58,3 +58,68 @@
     border: 2px solid #F7941E;
     border-radius: 50%;
 }
+.la-in{
+    display: flex;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 5px 5px 5px 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+.la label{
+    color: #2280C1;
+    font-size: 18px;
+}
+.in input{
+    padding: 28px 0 5px 0;
+    width: 200%;
+    outline: none;
+}
+.in-p{
+    margin: 0 0 0 0;
+}
+.phone-icon{
+    gap: 10px;
+}
+.em-up-user input{
+    width: 100%;
+    text-align: center;
+    color: #2280C1;
+}
+.update-user-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #2280C1;
+    margin: 0 40%;
+    margin-top: 20px;
+    padding: 5px 0;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+.update-user-info:hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #2280C1;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 40%;
+    margin-top: 20px;
+    padding: 5px 0;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+.update-user-info input:hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #2280C1;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}

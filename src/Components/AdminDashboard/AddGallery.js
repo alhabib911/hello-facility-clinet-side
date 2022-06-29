@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import './AddGalary.css'
 
 const AddGallery = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
