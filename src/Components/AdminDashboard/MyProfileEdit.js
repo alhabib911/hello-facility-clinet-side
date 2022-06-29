@@ -1,43 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
-import { FiEdit } from 'react-icons/fi';
+import { RiSave3Line } from 'react-icons/ri';
 import auth from '../firebase.init';
 import './MyProfile.css'
+import useUpdateUser from '../hooks/useUpdateUser';
 
 const MyProfileEdit = () => {
     const [user] = useAuthState(auth)
+    const [updateUser] = useUpdateUser()
+    console.log(updateUser);
+    const [status, setStatus] = useState()
+
+    const handelUpdateUser = event => {
+        event.preventDefault()
+        const name = event.target.name.value
+        const email = event.target.email.value
+        const phone = event.target.phone.value
+        const address = event.target.address.value
+        const position = event.target.position.value
+        const hfid = event.target.hfid.value
+
+
+
+        const updateProfile = { name, email, phone, address, status, position, hfid }
+        // console.log(updateProduct);
+
+
+
+        const url = `http://localhost:5000/user/${email}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(updateProfile)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                // toast('Update Successful');
+                window.location.reload();
+                event.target.reset()
+            })
+    }
     return (
         <div>
             <div className='dashboard-container'>
                 <h2 className='profile-container-title'>My Profile</h2>
-                <div className="update-user-img">
-                    <div className="update-user-img">
-                        <img src={user.photoURL} alt="" />
+
+                <form onSubmit={handelUpdateUser}>
+                    <div className='single-product-edit'>
+                        <div>
+                            <label htmlFor="name">Name</label> <br />
+                            <input defaultValue={updateUser?.name} type="text" name="name" id="" />
+                        </div>
+                        <div>
+                            <label htmlFor="email">Email</label> <br />
+                            <input className='em-email-update' defaultValue={updateUser?.email} type="email" name="email" id="" readOnly />
+                        </div>
+                        <div>
+                            <label htmlFor="phone">Phone</label> <br />
+                            <input defaultValue={updateUser?.phone} type="number" name="phone" id="" />
+                        </div>
+                        <div>
+                            <label htmlFor="address">Address</label> <br />
+                            <input defaultValue={updateUser?.address} type="text" name="address" id="" />
+                        </div>
+
+                        <select value={status} onChange={event => setStatus(event.target.value)} required>
+                            <option disabled selected>Dashboard Status</option>
+                            <option>Admin</option>
+                            <option>Accounts</option>
+                        </select>
+                        <div>
+                            {updateUser?.status}
+                        </div>
+                        <div>
+                            <label htmlFor="position">Designation</label> <br />
+                            <input defaultValue={updateUser?.position} type="text" name="position" id="" />
+                        </div>
+                        <div>
+                            <label htmlFor="hfid">HF Id</label> <br />
+                            <input defaultValue={updateUser?.hfid} type="number" name="hfid" id="" />
+                        </div>
                     </div>
-                </div>
-                <div className="user-info">
-                    <div className="user-name">
-                        Name: <input type="text" />
+                    <div className="update-user-info">
+                        <RiSave3Line />
+                        <input className='update-user' type="submit" value="Save Change" />
                     </div>
-                    <div className="user-email">
-                        Email: {user.email}
-                    </div>
-                    <div className="user-phone">
-                        Phone: {user.phoneNumber}
-                    </div>
-                    <div className="user-status">
-                        User Status:
-                    </div>
-                </div>
-                <div className="update-link">
-                    <div className="update-link-icon">
-                        <FiEdit />
-                    </div>
-                    <div className="update-link-btn">
-                        <Link to='/dashboard/profile/edit'>Update Profile</Link>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     );

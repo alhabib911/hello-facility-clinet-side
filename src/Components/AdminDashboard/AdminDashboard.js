@@ -24,7 +24,7 @@ const AdminDashboard = () => {
                     <label for="my-drawer-2" class="drawer-overlay"></label>
                     <ul class="menu p-4 overflow-y-auto w-56 bg-base-200 text-base-content">
 
-                        <li ><Link className='disabled-link' to='/dashboard/profile/edit'></Link></li>
+                        <img className='profile-img w-20' src={user?.photoURL} alt="" />
                         <li><Link to='/dashboard'>My Profile</Link></li>
                         {
                             user && <li><Link to='/dashboard/overview'>Overview</Link></li>
