@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import useVendor from '../hooks/useVendor';
-import Vendors from './Vendors';
 
 const Vendor = () => {
-    const [setVendor] = useState([])
+    const [vendorDetails, setVendorDetails] = useState([])
     const handelVendorDetails = event => {
         event.preventDefault()
         const name = event.target.name.value
@@ -14,7 +13,7 @@ const Vendor = () => {
 
 
         const vendorInfo = { name, email, phone, address, account }
-        setVendor(vendorInfo)
+        setVendorDetails(vendorInfo)
 
         fetch('http://localhost:5000/vendor', {
             method: 'POST',
@@ -50,11 +49,25 @@ const Vendor = () => {
                 </form>
             </div>
             <div>
-               {
-                vendor.map(vendor=> <Vendors
-                    vendor={vendor}
-                ></Vendors>)
-               }
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <p className='mt-10 ml-3'>Vendor Details:</p>
+                        <tbody>
+                            <tr>
+                                {
+                                    vendor.map(vendor => <tr>
+                                        <td>Name: {vendor?.name}</td>
+                                        <td>Email: {vendor?.email}</td>
+                                        <td>Phone: +880{vendor?.phone}</td>
+                                        <td>Address: {vendor?.address}</td>
+                                        <td>Account Details: {vendor?.account}</td>
+                                    </tr>)
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
         </div>
