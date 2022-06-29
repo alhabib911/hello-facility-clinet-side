@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
 import { BiLogOut } from 'react-icons/bi';
 import ColorLogo from '../../images/Logo/Color.png'
+import useUpdateUser from '../hooks/useUpdateUser';
 
 const AdminNavbar = () => {
+    const [updateUser] = useUpdateUser()
+    console.log(updateUser);
     const [user] = useAuthState(auth)
     const handleSignOut = () => {
         signOut(auth)
@@ -37,15 +40,33 @@ const AdminNavbar = () => {
                     <Link to='/dashboard'><img className='color-logo' src={ColorLogo} alt="" /></Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
-                <h2 className='dashboard-header-text'>Welcome to <span className='logo-hello'>Hello</span> <span className='logo-facility'>Facility</span> Dashboard</h2>
+                    <h2 className='dashboard-header-text'>Welcome to <span className='logo-hello'>Hello</span> <span className='logo-facility'>Facility</span> Dashboard</h2>
                 </div>
                 <div class="navbar-end">
-                {
-                            user ?
-                                <Link to='/login' onClick={handleSignOut}><BiLogOut /><span>Log Out</span></Link>
-                                :
-                                <Link to='/login'><span></span></Link>
-                        }
+                    {
+                        user ?
+                            <div class="dropdown">
+                                <label tabindex="0" className='flex items-center'>
+                                    <span className='mr-4'><img className='profile-img w-8' src={user?.photoURL} alt="" /></span>
+                                    {updateUser?.name || user?.displayName}
+                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                                </label>
+                                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><Link to='/dashboard/profile'>My Account</Link></li>
+                                    <li><Link to='/dashboard/profile/edit'>Manage Account</Link></li>
+                                    <li>
+                                        {
+                                            user ?
+                                                <Link to='/login' onClick={handleSignOut}><BiLogOut /><span>Log Out</span></Link>
+                                                :
+                                                <Link to='/login'><span>Login/Register</span></Link>
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                            :
+                            <span><img className='profile-img w-8' src={user?.photoURL} alt="" /></span>
+                    }
                 </div>
             </div>
         </div>

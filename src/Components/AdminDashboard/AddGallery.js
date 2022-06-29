@@ -53,7 +53,7 @@ const AddGallery = () => {
         <div>
             <div className='dashboard-container'>
                 <h2 className='profile-container-title'>Add Gallery Photos</h2>
-                <div className="gallery-container">
+                <div className="add-gallery-container">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-area ">

@@ -1,11 +1,6 @@
 import React from 'react';
 import ColorLogo from '../../images/Logo/Color.png'
 import { Link } from "react-router-dom";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
-import { signOut } from 'firebase/auth';
-import { RiAccountPinCircleFill } from 'react-icons/ri';
-import { BiLogOut } from 'react-icons/bi';
 import './Navbar.css'
 
 const Navbar = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Cost = () => {
+const CashBook = () => {
     return (
         <div>
-            Cost
+            cash book
         </div>
     );
 };
 
-export default Cost;
+export default CashBook;
