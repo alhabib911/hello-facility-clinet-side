@@ -9,7 +9,7 @@ import useUpdateUser from '../hooks/useUpdateUser';
 
 const AdminNavbar = () => {
     const [updateUser] = useUpdateUser()
-    console.log(updateUser);
+    // console.log(updateUser);
     const [user] = useAuthState(auth)
     const handleSignOut = () => {
         signOut(auth)
