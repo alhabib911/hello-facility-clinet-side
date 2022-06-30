@@ -1,140 +1,145 @@
-import React, { useState } from 'react';
-import { MdEmail } from 'react-icons/md';
-import { RiLockPasswordFill } from 'react-icons/ri';
-import { BsTelephoneFill } from 'react-icons/bs';
-import { FcGoogle } from 'react-icons/fc'
-import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import auth from '../firebase.init';
-import { sendEmailVerification } from 'firebase/auth';
-import ColorLogo from '../../images/Logo/Color.png'
-import './Register.css'
 import useToken from '../hooks/useToken';
-
+import { Link, useNavigate } from 'react-router-dom';
+import ColorLogo from '../../images/Logo/Color.png'
+import Loading from '../Shared/Loading';
+import { FcGoogle } from 'react-icons/fc';
+import './Register.css'
 
 const Register = () => {
-    const [setDisplayName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [confrimPassword, setConfirmPassword] = useState('')
-    const [error, setError] = useState('')
-    const navigate = useNavigate()
-
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
         user,
-        loading
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const [token] = useToken(user || gUser)
+    const [token] = useToken(user || gUser);
 
-    console.log(token);
+    const navigate = useNavigate();
 
-
-
-    const handleEmailBlur = event => {
-        setEmail(event.target.value)
-    }
-
-    const handlePhonedBlur = event => {
-        setPassword(event.target.value)
-    }
-
-    const handlePasswordBlur = event => {
-        setConfirmPassword(event.target.value)
-    }
     let signInError;
 
-    if (loading || gLoading) {
-        return
+    if (loading || gLoading || updating) {
+        return <Loading></Loading>
     }
-    if (error || gError) {
-        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+
+    if (error || gError || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
+
     if (token) {
-        navigate('/dashboard')
+        navigate('/dashboard');
     }
 
-
-
-
-    const handleCreateUser = async event => {
-        event.preventDefault()
-        await createUserWithEmailAndPassword(email, password)
-        // await sendEmailVerification(auth, email)
-            .then(() => {
-                // toast('Email Sent');
-            })
-        if (password !== confrimPassword) {
-            setError('Your Password did not match')
-            return;
-        }
-        if (password.length < 8) {
-            setError('Password must be 8 characthers')
-            return;
-        }
-
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        console.log('update done');
     }
     return (
-        <div>
-            <div className="register-bg">
-                <div className='register-container'>
-                    <div className="login-icon">
-                        <img className='color-logo-login-page' src={ColorLogo} alt="" />
-                    </div>
-                    <div className="register-form">
-                        <div className='social-login'>
-                            <button onClick={() => signInWithGoogle()}> <span><FcGoogle></FcGoogle></span> Login With Google</button>
-                        </div>
-                        <div class=" from-divider flex flex-col w-full border-opacity-50">
-                            <div class="divider">OR</div>
-                        </div>
-                        {/* <div className="form-title">
-                            <h2>Register</h2>
-                        </div> */}
-
-                        <form onSubmit={handleCreateUser} className='register-form-field'>
-                            <div className="email">
-                                <div className="email-title">
-                                    <label htmlFor="email">Email</label>
-                                    <MdEmail></MdEmail>
-                                </div>
-                                <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='someone@emaple.com' />
-                            </div>
-                            <br />
-
-                            <div className="phone">
-                                <div className="phone-title">
-                                    <label htmlFor="phone">Phone</label>
-                                    <BsTelephoneFill></BsTelephoneFill>
-                                </div>
-                                
-                                <input onBlur={handlePhonedBlur} type="number" name="phone" id="" placeholder='+880 1234567891' />
-                            </div>
-
-                            <br />
-                            <div className="password">
-                                <div className="password-title">
-                                    <label htmlFor="password">Password</label>
-                                    <RiLockPasswordFill></RiLockPasswordFill>
-                                </div>
-
-                                <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='some@pass#123' />
-                            </div>
-                            <br />
-                            {signInError}
-                            <div className="register-btn">
-                                <input type="submit" value="Register" />
-                            </div>
-                            <p className='switch-register'>Don't have an Account? <Link to='/login'><span>Login</span></Link></p>
-
-                        </form>
-                    </div>
-                    {/* <ToastContainer/> */}
-                </div>
+        <div className='register-container'>
+            <div className='register-container-area'>
+                <img src={ColorLogo} alt="" />
             </div>
+            <div className='register-form'>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body">
+                        <div className="g-button">
+                            <div>
+                                <FcGoogle />
+                            </div>
+                            <button
+                                onClick={() => signInWithGoogle()} > Continue with Google
+                            </button>
+                        </div>
+                        <div className="divider">OR</div>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("name", {
+                                        required: {
+                                            value: true,
+                                            message: 'Name is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                </label>
+                            </div>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="Your Email"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("email", {
+                                        required: {
+                                            value: true,
+                                            message: 'Email is Required'
+                                        },
+                                        pattern: {
+                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                            message: 'Provide a valid Email'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                    {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("password", {
+                                        required: {
+                                            value: true,
+                                            message: 'Password is Required'
+                                        },
+                                        minLength: {
+                                            value: 6,
+                                            message: 'Must be 6 characters or longer'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                    {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                </label>
+                            </div>
+
+                            {signInError}
+                            <input className='login-btn w-full max-w-xs text-white' type="submit" value="Register" />
+                        </form>
+                        <p className='login-link'><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
+
+                    </div>
+                </div>
+            </div >
         </div>
     );
 };

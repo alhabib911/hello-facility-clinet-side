@@ -13,9 +13,8 @@ const UserStatus = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Email</th>
                             <th>Admin</th>
-                            <th>Accounts</th>
                             <th>Remove Button</th>
                         </tr>
                     </thead>

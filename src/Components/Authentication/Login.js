@@ -1,23 +1,18 @@
-import { sendPasswordResetEmail } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { MdEmail } from 'react-icons/md';
-import { RiLockPasswordFill } from 'react-icons/ri';
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
-import Loading from '../Shared/Loading';
-import './Login.css'
-import ColorLogo from '../../images/Logo/Color.png'
+import { useForm } from "react-hook-form";
 import useToken from '../hooks/useToken';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Loading from '../Shared/Loading';
+import ColorLogo from '../../images/Logo/Color.png'
+import { FcGoogle } from 'react-icons/fc';
+import './Login.css'
 
 const Login = () => {
     const [email, SetEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const navigate = useNavigate()
-
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
         user,
@@ -25,97 +20,108 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user || gUser)
-    console.log(token);
+    const [token] = useToken(user || gUser);
 
     let signInError;
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    if (token) {
+        navigate('/dashboard');
+    }
+
+    if (loading || gLoading) {
+        return <Loading></Loading>
+    }
 
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
-    if (loading || gLoading) {
-        return
+
+    const onSubmit = data => {
+        signInWithEmailAndPassword(data.email, data.password);
     }
 
 
-    if (token) {
-        navigate('/dashboard')
-        // console.log(user);
-    }
-
-    const handleEmailBlur = event => {
-        SetEmail(event.target.value)
-    }
-    const handlePasswordBlur = event => {
-        setPassword(event.target.value)
-    }
-
-    const handleUserSignIn = event => {
-        event.preventDefault();
-        signInWithEmailAndPassword(email, password)
-            .then(() => {
-                <Loading></Loading>
-            })
-    }
-    const handlePasswordReset = () => {
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                // toast('Email Sent');
-            })
-    }
     return (
-        <div>
-            <div className="login-bg">
-                <div className="login-container">
-                    <div className="login-icon">
-                        <img className='color-logo-login-page' src={ColorLogo} alt="" />
-                        <p>This page is only for Admin</p>
-                    </div>
-                    <div className='login-form'>    
-                        <div className='social-login'>
-                            <button onClick={() => signInWithGoogle()}> <span><FcGoogle></FcGoogle></span> Login With Google</button >
-                        </div>
-                        <div class=" from-divider flex flex-col w-full border-opacity-50">
-                            <div class="divider">OR</div>
-                        </div>
-
-                        {/* <div className="form-title">
-                            <h2>Sign In</h2>
-                        </div> */}
-                        <form onSubmit={handleUserSignIn} className='login-form-field'>
-                            <div className="email">
-                                <div className="email-title">
-                                    <label htmlFor="email">Email</label>
-                                    <MdEmail></MdEmail>
-                                </div>
-                                <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='someone@emaple.com' />
-                            </div>
-                            <br />
-                            <div className="password">
-                                <div className="password-title">
-                                    <label htmlFor="password">Password</label>
-                                    <RiLockPasswordFill></RiLockPasswordFill>
-                                </div>
-
-                                <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='some@pass#123' />
-                            </div>
-                            <br />
-                            {
-                                loading && <p className='loading'>Loading...</p>
-                            }
-                            {signInError}
-                            <div className="login-btn">
-                                <input type="submit" value="Log In" />
-                            </div>
-                            <div className="forget-button">
-                                <button onClick={handlePasswordReset} className='forget-btn'>Forget Your Password?</button>
-                            </div>
-                            <p className='switch-register'>Don't have an Account? <Link to='/register'><span>Register</span></Link></p>
-                        </form>
-                    </div>
-                    {/* <ToastContainer/> */}
-                </div>
+        <div className='login-container'>
+            <div className='login-logo-area'>
+                <img src={ColorLogo} alt="" />
             </div>
+            <div className='login-form'>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body">
+                        <div className="g-button">
+                            <div>
+                                <FcGoogle />
+                            </div>
+                            <button
+                                onClick={() => signInWithGoogle()} > Continue with Google
+                            </button>
+                        </div>
+                        <div className="divider">OR</div>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="Your Email"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("email", {
+                                        required: {
+                                            value: true,
+                                            message: 'Email is Required'
+                                        },
+                                        pattern: {
+                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                            message: 'Provide a valid Email'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                    {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                </label>
+                            </div>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("password", {
+                                        required: {
+                                            value: true,
+                                            message: 'Password is Required'
+                                        },
+                                        minLength: {
+                                            value: 6,
+                                            message: 'Must be 6 characters or longer'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                    {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                </label>
+                            </div>
+
+                            {signInError}
+
+                            <input className='login-btn w-full max-w-xs' type="submit" value="Login" />
+                        </form>
+
+                        <p className='create-account-link'><small> <Link to="/register">Create New Account</Link></small></p>
+                    </div>
+                </div>
+            </div >
+
         </div>
     );
 };

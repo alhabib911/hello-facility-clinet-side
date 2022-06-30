@@ -93,7 +93,6 @@ const MyProfileEdit = () => {
                                 <select value={status} onChange={event => setStatus(event.target.value)} required>
                                     <option disabled selected>Dashboard Status</option>
                                     <option>Admin</option>
-                                    <option>Accounts</option>
                                 </select> <FiUserPlus />
                             </div>
                             <div className="in">

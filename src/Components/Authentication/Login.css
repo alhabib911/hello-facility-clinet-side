@@ -1,133 +1,63 @@
-.login-bg{
-    background-color: #EBF0F4;
-}
 .login-container{
     display: flex;
-    width: 80%;
-    margin: auto;
-    gap: 80px;
+    margin-top: 60px;
 }
-.login-icon{
-    width: 40%;
+.login-logo-area{
+    width: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
-
-.color-logo-login-page{
-    width: 250px;
-    
+.login-logo-area img{
+    width: 230px;
 }
 .login-form{
-    width: 55%;
-    border: 1px solid rgb(248, 248, 248);
-    background-color: #fff;
-    border-radius: 5px;
-    margin-top: 75px;
-    margin-bottom: 120px;
+    width: 50%;
 }
-.from-divider{
-    margin: 18px 0 18px 0;
+.create-account-link{
+    text-align: center;
+    margin-top: 10px;
+    color: #0F75BC;
 }
-.divider{
-    width: 90%;
-    margin: auto;
-}
-.email{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid gainsboro;
-    border-radius: 5px;
-    padding: 5px 0 5px 12px;
-}
-.email input{
-    width: 100%;
-    margin: 20px 0 0 -10px;
-    border: none;
-    outline: none;
-}
-.password{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid gainsboro;
-    border-radius: 5px;
-    padding: 5px 0 5px 12px;
-}
-.password input{
-    width: 100%;
-    margin: 20px 0 0 -38px;
-    border: none;
-    outline: none;
-}
-.login-form-field{
-    width: 75%;
-    margin: auto;
-}
-.form-title h2{
-    width: 75%;
-    margin: auto;
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 10px;
+.create-account-link:hover{
+    text-align: center;
+    margin-top: 10px;
+    color: #F7941E;
 }
 .login-btn{
-    display: flex;
-    justify-content: center;
     border: 1px solid gainsboro;
-    padding: 10px 0 10px 0;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0F75BC;
+    color: #fff;
     cursor: pointer;
 }
 .login-btn:hover{
-    display: flex;
-    justify-content: center;
     border: 1px solid gainsboro;
-    padding: 10px 0 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #1C3C6B;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F7941E;
     color: #fff;
-}
-.login-btn input{
-    font-size: 17px;
     cursor: pointer;
 }
-.switch-register{
-    margin: 25px 0 70px 0;
-    text-align: center;
-    font-size: 14px;
-}
-.switch-register span{
-    font-weight: 600;
-    color: #1C3C6B;
-}
-.social-login{
+.g-button{
     display: flex;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 10px;
+    color: #383838;
+    cursor: pointer;
+    align-items: center;
     justify-content: center;
-}
-.social-login button{
-    display: flex;
-    align-items: center;
     gap: 5px;
-    border: 1px solid gainsboro;
-    margin-top: 30px;
-    padding: 10px 140px 10px 140px;
-    border-radius: 5px;
 }
-.social-login button:hover{
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.g-button:hover{
     border: 1px solid gainsboro;
-    margin-top: 30px;
-    padding: 10px 140px 10px 140px;
-    border-radius: 5px;
-    background-color: #1C3C6B;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0F75BC;
     color: #fff;
-}
-.forget-button{
-    padding: 35px 0 0 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
