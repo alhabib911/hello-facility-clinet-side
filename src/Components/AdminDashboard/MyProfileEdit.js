@@ -32,7 +32,7 @@ const MyProfileEdit = () => {
 
 
 
-        const url = `http://localhost:5000/user/${email}`
+        const url = `https://hidden-shelf-50745.herokuapp.com/user/${email}`
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -26,7 +26,7 @@ const AddGallery = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('http://localhost:5000/gallery', {
+                    fetch('https://hidden-shelf-50745.herokuapp.com/gallery', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

@@ -5,7 +5,7 @@ const UserRow = ({user}) => {
     
     const{email, role, name} = user
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://hidden-shelf-50745.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,7 +22,7 @@ const UserRow = ({user}) => {
         const proceed = window.confirm('Do you want to delete this user?')
         if (proceed) {
             // console.log('delete', id);
-            const url = `http://localhost:5000/user/${email}`
+            const url = `https://hidden-shelf-50745.herokuapp.com/user/${email}`
             fetch(url, {
                 method: "DELETE"
             })

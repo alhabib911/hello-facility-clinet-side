@@ -27,7 +27,7 @@ const EmployeeUpdate = () => {
 
 
 
-        const url = `http://localhost:5000/employee/${id}`
+        const url = `https://hidden-shelf-50745.herokuapp.com/employee/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

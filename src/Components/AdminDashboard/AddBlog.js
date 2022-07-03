@@ -28,7 +28,7 @@ const AddBlog = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('http://localhost:5000/blog', {
+                    fetch('https://hidden-shelf-50745.herokuapp.com/blog', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

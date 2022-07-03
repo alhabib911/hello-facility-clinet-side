@@ -22,7 +22,7 @@ const Employee = () => {
         setDetailsEmployee(employeeDetails)
         // console.log(booking);
 
-        fetch('http://localhost:5000/employee', {
+        fetch('https://hidden-shelf-50745.herokuapp.com/employee', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -9,7 +9,7 @@ const useUpdateUser = () => {
     // console.log(user);
     const [updateUser, setUpdateUser] = useState({})
     useEffect(()=>{
-        fetch(`http://localhost:5000/user/${email}`,{
+        fetch(`https://hidden-shelf-50745.herokuapp.com/user/${email}`,{
             method: 'GET',
             headers: {
                 'content-type': 'application/json'

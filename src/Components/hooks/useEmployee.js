@@ -5,7 +5,7 @@ const useEmployee = () => {
     
     const [employee, setEmployee] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/employee',{
+        fetch('https://hidden-shelf-50745.herokuapp.com/employee',{
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

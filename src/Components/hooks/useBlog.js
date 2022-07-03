@@ -5,7 +5,7 @@ const useBlog = () => {
     
     const [blog, setBlog] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/blog',{
+        fetch('https://hidden-shelf-50745.herokuapp.com/blog',{
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
