@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import useToken from '../hooks/useToken';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Loading from '../Shared/Loading';
-import ColorLogo from '../../images/Logo/Color.png'
 import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 
@@ -46,10 +45,7 @@ const Login = () => {
 
     return (
         <div className='login-container'>
-            <div className='login-logo-area'>
-                <img src={ColorLogo} alt="" />
-            </div>
-            <div className='login-form'>
+            <div className='flex h-screen justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <div className="g-button">

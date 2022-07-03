@@ -1,13 +1,10 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
-import auth from '../firebase.init';
-import useToken from '../hooks/useToken';
 import { Link, useNavigate } from 'react-router-dom';
-import ColorLogo from '../../images/Logo/Color.png'
-import Loading from '../Shared/Loading';
 import { FcGoogle } from 'react-icons/fc';
-import './Register.css'
+import Loading from '../Shared/Loading';
+import { useForm } from "react-hook-form";
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const Register = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -21,7 +18,7 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const [token] = useToken(user || gUser);
+    // const [token] = useToken(user || gUser);
 
     const navigate = useNavigate();
 
@@ -35,7 +32,7 @@ const Register = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (token) {
+    if (user) {
         navigate('/dashboard');
     }
 
@@ -46,9 +43,7 @@ const Register = () => {
     }
     return (
         <div className='register-container'>
-            <div className='register-container-area'>
-                <img src={ColorLogo} alt="" />
-            </div>
+            
             <div className='register-form'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
